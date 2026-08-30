@@ -20,6 +20,14 @@ Here's the whole thing, including the parts that didn't work.
 
 ---
 
+## TL;DR: the migration system
+
+![AI-assisted TestCafe-to-Playwright migration system: TestCafe tests feed a governed agent workflow, guided by a constitution and checked through lint, build, tests, and human review before producing Playwright tests.](../assets/testcafe-to-playwright-migration-tldr.png)
+
+**The short version:** AI supplied the first draft; the constitution, mechanical checks, and human review gate made that draft safe to scale.
+
+---
+
 ## Which AI approaches are actually suited to this
 
 There are four obvious ways to point AI at a test migration. Only one of them fits, and the reasons are structural rather than a matter of model quality.
