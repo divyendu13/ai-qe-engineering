@@ -18,19 +18,7 @@ Three things turned out to be sitting on top of the framework. None of them were
 
 ## TL;DR: what determines CI feedback time
 
-```mermaid
-flowchart TD
-    A[CI run] --> B[Test work]
-    A --> C[How work is split]
-    A --> D[Fixed infrastructure overhead]
-    B --> E[Per-test execution speed]
-    C --> F[Node imbalance and idle parallelism]
-    D --> G[Provisioning and environment wait]
-    E --> H[Developer wait:<br/>slowest node]
-    F --> H
-    G --> H
-    H --> I[Measure before claiming improvement]
-```
+![CI sharding before and after: a JUnit report with file paths enables timing-based test splitting, balancing five workers while fixed setup and provisioning overhead remains a separate constraint.](../assets/playwright-ci-sharding-tldr.png)
 
 **The short version:** faster tests help, but developer wait is determined by the slowest node; accurate timing-based splitting and infrastructure overhead can dominate the result.
 
