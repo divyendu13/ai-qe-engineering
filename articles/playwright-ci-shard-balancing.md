@@ -98,7 +98,11 @@ Deriving the headline number from executed results is what let us say the legacy
 
 ## The numbers
 
-Three different wall-clock figures appear in this post and they are not the same measurement, so let me pin them to their eras first. This is precisely the sloppiness that makes CI numbers unquotable:
+There are **two different comparisons** in this story, and they answer different questions.
+
+**The overall migration outcome:** PR feedback time fell from roughly **45 minutes to roughly 30 minutes** after the legacy framework was fully retired, Playwright became the only framework running in CI, and the pipeline's timing-based sharding was working correctly.
+
+**The table below is a narrower experiment.** It isolates the effect of correcting the CI split and removing superseded legacy specs during the migration. Because this comparison is between individual pipeline runs, infrastructure variance — particularly cluster-provisioning time — can overwhelm the improvement we're trying to measure. In this particular pair of runs, the slowest-node time actually increased from 33.6 to 36.9 minutes. That does **not** contradict the ~45 → ~30 minute overall result; it demonstrates why single-run comparisons are a poor way to measure CI improvements.
 
 | Era | e2e wall time | What was running |
 |---|---:|---|
@@ -116,13 +120,33 @@ The mid-migration figures are the noisy ones, and they're the ones in the table 
 | Superseded legacy specs still executing | 73 | 0 | **retired** |
 | Developer wait (slowest node) | 33.6m | 36.9m | **no improvement** |
 
-That last row is the instructive one. Developer-facing wall time did not improve *in that comparison*, because one node's cluster-provisioning wait happened to be 8.81 minutes against 6.3 at baseline. Infrastructure variance of the same order as the gains being measured — which is exactly why single-run comparisons are unsafe, and why I'm showing an era table rather than one triumphant before-and-after.
+That last row is the instructive one. Developer-facing wall time did not improve *in that comparison*, because one node's cluster-provisioning wait happened to be 8.81 minutes against 6.3 at baseline. Infrastructure variance of the same order as the gains being measured — which is exactly why single-run comparisons are unsafe.
+
+**The important distinction:** shard balancing improved the distribution of work; it did **not**, by itself, produce the final 45 → 30 minute developer-wait reduction.
+
+The final wall-clock improvement came primarily from **finishing the migration and retiring the legacy framework**, which removed the largest indivisible workloads from the pipeline. Correct timing-based sharding then made the remaining Playwright workload distribute efficiently.
+
+In other words:
+
+```text
+Framework migration
+       +
+Legacy suite retirement
+       +
+Correct timing-based sharding
+       +
+CI cleanup
+       ↓
+~45 min → ~30 min developer wait
+```
+
+The 33.6 → 36.9 minute figure is an example of why we shouldn't attribute that overall improvement to the shard fix alone.
 
 ---
 
 ## Where the wall-clock win actually came from
 
-Not from the split fix. From finishing the migration — and via a property of the two frameworks that took me embarrassingly long to appreciate.
+The final wall-clock win did **not** come from shard balancing alone. It came primarily from finishing the migration and retiring the legacy framework, which removed the largest indivisible workloads from the pipeline. Correct timing-based sharding then made the remaining Playwright workload distribute efficiently.
 
 **The legacy framework splits by file.** So per-node time cannot fall below the largest indivisible file, no matter how many machines you add. Ours was 11.4 minutes. Three files alone accounted for **77%** of all remaining legacy test time.
 
