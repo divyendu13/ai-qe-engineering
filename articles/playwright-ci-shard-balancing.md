@@ -4,7 +4,7 @@
 
 ---
 
-We spent three months migrating an eight-year-old end-to-end suite — 354 tests across 38 files — from TestCafe to Playwright. That part is [a different story](#).
+We spent three months migrating an eight-year-old end-to-end suite — 354 tests across 38 files — from TestCafe to Playwright. That part is [a different story](./testcafe-playwright-ai-migration.md).
 
 This one is about the CI work underneath it, which turned out to be where most of the wall-clock win actually came from:
 
@@ -174,4 +174,4 @@ There's still headroom, incidentally. The environment deployment installs the sa
 
 ---
 
-*The companion post covers the migration itself — how an agent loop wrote the first draft of 55,000 lines of Playwright tests, and why the harness mattered more than the AI.*
+*The companion post covers the migration itself — [how an agent loop wrote the first draft of 55,000 lines of Playwright tests, and why the harness mattered more than the AI](./testcafe-playwright-ai-migration.md).*
