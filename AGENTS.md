@@ -7,9 +7,10 @@ This repository is Divyendu Shukla's hands-on portfolio for transitioning from S
 - AI Quality Engineering
 - AI/ML Validation Engineering
 - AI SDET / GenAI QE
-- AI Evaluation / Reliability Engineering
+- AI Evaluation Engineering
+- AI Reliability Engineering
 
-The goal is not to collect AI tools, certifications, or framework names.
+The goal is not to collect AI tools, certifications, framework names, or disconnected demos.
 
 The goal is to build practical, defensible expertise in **testing AI/ML systems themselves**:
 
@@ -17,11 +18,14 @@ The goal is to build practical, defensible expertise in **testing AI/ML systems 
 - LLM evaluation
 - RAG quality
 - Agent reliability
+- AI-native automation
 - Safety and adversarial behavior
 - Data quality
 - Model behavior
+- Prompt quality
 - Performance
 - Observability
+- Drift and regression
 - Production quality gates
 
 Every project should answer a practical engineering question:
@@ -84,7 +88,7 @@ When discussing QA-Agent:
 
 - Describe only capabilities actually implemented in the repository.
 - Do not imply that it already performs LLM evaluation, RAG evaluation, model validation, hallucination detection, trajectory scoring, or other capabilities unless those capabilities are subsequently implemented.
-- Prefer linking to concrete code and tests when making claims.
+- Prefer linking to concrete code, tests, and documentation when making claims.
 
 QA-Agent is evidence of **AI-powered QE automation**.
 
@@ -118,7 +122,7 @@ The important engineering lesson is:
 
 Do not present the migration as "AI wrote the tests."
 
-The defensible story is that AI accelerated mechanical migration while the engineering work focused on constraints, validation, feedback loops, and quality control.
+The defensible story is that AI accelerated mechanical migration while the engineering work focused on constraints, validation, feedback loops, architecture, and quality control.
 
 ---
 
@@ -192,6 +196,8 @@ LLM evaluation
 RAG evaluation
       ↓
 Agent reliability
+      ↓
+AI-native automation
       ↓
 AI safety / adversarial testing
       ↓
