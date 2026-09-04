@@ -44,25 +44,7 @@ A hands-on AI/ML quality engineering platform focused on answering one question:
 
 > **Is this AI system good enough to ship?**
 
-The project will progressively cover:
-
-```text
-Data
-  ↓
-Data validation
-  ↓
-Feature validation
-  ↓
-Model validation
-  ↓
-LLM / RAG evaluation
-  ↓
-Safety & adversarial testing
-  ↓
-Performance & observability
-  ↓
-CI/CD quality gates
-```
+The project is at the evaluation-design stage; application implementation has not started. The first milestone is a small evaluation runner with a versioned dataset, deterministic checks, structured results, explicit thresholds, deliberate failures, and one semantic/model-based evaluator.
 
 The implementation is intentionally incremental. Each capability is learned by building it, testing it, deliberately breaking it, and then hardening the quality checks.
 
@@ -92,19 +74,18 @@ Python · pytest · pandas · NumPy · scikit-learn · FastAPI · LLM Evaluation
 
 ## Roadmap
 
-```text
-AI-assisted QE
-      ↓
-AI-powered QE
-      ↓
-AI / ML validation
-      ↓
-LLM + RAG evaluation
-      ↓
-AI reliability & safety
-      ↓
-Production AI quality engineering
-```
+The next month is organized around small working evaluation capabilities:
+
+| Week | Planned focus |
+|---|---|
+| 1 | Evaluation fundamentals and the first AI Quality Gate runner. A small ML exercise introduces train/test split, precision, recall, F1, thresholds, and model regression; most effort goes into the evaluation system. |
+| 2 | LLM/RAG correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, and retrieval-versus-generation failures. |
+| 3 | Observable agent behavior, tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, and tool abuse. |
+| 4 | Observability, regression detection, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
+
+Python and pytest support the evaluation work. FastAPI is optional. Evaluation frameworks such as DeepEval, RAGAS, and promptfoo will be considered only after implementing and understanding the underlying concepts. These are planned capabilities, not completed project claims.
+
+The working approach is to explain a needed concept, reason about the quality strategy, implement and test it, deliberately demonstrate a failure, improve validation, and document the evidence. Persistent working instructions and the current checkpoint live in [AGENTS.md](./AGENTS.md).
 
 The objective is not to collect AI tools. It is to develop the ability to **design, test, evaluate, and operationalize AI systems end-to-end**.
 
