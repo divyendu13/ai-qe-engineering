@@ -2,7 +2,7 @@
 
 A hands-on portfolio exploring how Quality Engineering evolves for AI/ML and Generative AI systems.
 
-I am a Staff Software Engineer in Test with ~10 years of experience building scalable automation, CI/CD, observability, performance, security, and distributed-system testing. This repository documents my transition from **testing software with AI to testing the AI itself**.
+I am a Staff Software Engineer in Test with ~10 years of experience building scalable automation, CI/CD, observability, performance, security, and distributed-system testing. This repository documents my transition from testing software with AI to engineering quality, evaluation, and reliability for AI-powered systems.**.
 
 ## Why this repository exists
 
@@ -25,6 +25,12 @@ The goal of this portfolio is to explore those problems through working systems,
 - Performance and latency testing for AI services
 - Observability and production validation
 - AI quality gates in CI/CD
+- AI system reliability and end-to-end validation
+- RAG system construction and evaluation
+- Agentic workflow construction and evaluation
+- Tool-use and action validation
+- Context engineering and structured-data integration
+- Evaluation-driven AI development
 
 ## Articles
 
@@ -79,8 +85,8 @@ The next month is organized around small working evaluation capabilities:
 | Week | Planned focus |
 |---|---|
 | 1 | Evaluation fundamentals and the first AI Quality Gate runner. A small ML exercise introduces train/test split, precision, recall, F1, thresholds, and model regression; most effort goes into the evaluation system. |
-| 2 | LLM/RAG correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, and retrieval-versus-generation failures. |
-| 3 | Observable agent behavior, tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, and tool abuse. |
+| 2 | Build a minimal RAG workflow, then evaluate LLM/RAG correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, and retrieval-versus-generation failures. |
+| 3 | Build a bounded agentic workflow, then evaluate observable agent behavior: tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, and tool abuse. |
 | 4 | Observability, regression detection, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
 
 Python and pytest support the evaluation work. FastAPI is optional. Evaluation frameworks such as DeepEval, RAGAS, and promptfoo will be considered only after implementing and understanding the underlying concepts. These are planned capabilities, not completed project claims.
