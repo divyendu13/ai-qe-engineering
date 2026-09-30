@@ -10,9 +10,11 @@ This repository is Divyendu Shukla's hands-on portfolio for transitioning from S
 - AI Evaluation Engineering
 - AI Reliability Engineering
 
+The primary specialization remains **engineering quality, reliability, and confidence in AI-powered systems**.
+
 The goal is not to collect AI tools, certifications, framework names, or disconnected demos.
 
-The goal is to build practical, defensible expertise in **testing AI/ML systems themselves**:
+The goal is to build practical, defensible expertise in:
 
 - AI/ML correctness
 - LLM evaluation
@@ -28,7 +30,27 @@ The goal is to build practical, defensible expertise in **testing AI/ML systems 
 - Drift and regression
 - Production quality gates
 
-Every project should answer a practical engineering question:
+A supporting goal is to develop enough **AI systems engineering capability** to build the systems being evaluated.
+
+This includes practical exposure to:
+
+- LLM application construction
+- RAG pipelines
+- Structured output and tool calling
+- Agent orchestration
+- Context engineering
+- Structured-data integration
+- Event/trigger-driven AI workflows
+- Human feedback loops
+- Production-oriented observability and failure handling
+
+This does **not** change the repository into a generic AI Engineering or ML Engineering portfolio.
+
+The guiding principle is:
+
+> **Build enough of the AI system to evaluate it credibly, then engineer confidence in its behavior.**
+
+Every project should ultimately help answer:
 
 > **Is this AI system good enough to ship?**
 
@@ -58,7 +80,37 @@ Strong existing expertise includes:
 
 Do **not** treat these as beginner topics unless a project explicitly requires deeper understanding.
 
-The learning effort should focus primarily on the **AI-system-under-test layer**, not on relearning general QE.
+The learning effort should focus primarily on the **AI-system-under-test layer**, while developing enough system-construction knowledge to understand how AI applications actually work end-to-end.
+
+Do not turn the learning journey into generic frontend development, backend development, cloud certification preparation, or ML research.
+
+---
+
+# Career Direction
+
+The primary target roles are:
+
+- AI Quality Engineer
+- AI Evaluation Engineer
+- AI Reliability Engineer
+- AI/ML Validation Engineer
+- AI SDET / GenAI QE
+- Staff / Principal Quality Engineer working on AI systems
+
+The portfolio may also develop transferable skills relevant to adjacent roles such as:
+
+- AI Automation Engineer
+- Agentic Systems Engineer
+- Applied AI Engineer
+- AI Platform Quality Engineer
+
+However, these adjacent roles should not cause the repository to lose its Quality Engineering identity.
+
+The differentiator should become:
+
+> **Deep Quality Engineering experience + AI systems understanding + AI evaluation + reliability engineering.**
+
+Do not position Divyendu as an ML researcher or as someone with years of production AI engineering experience unless future professional experience supports that claim.
 
 ---
 
@@ -189,45 +241,363 @@ AI-assisted QE
       ↓
 AI-powered QE
       ↓
+AI system construction fundamentals
+      ↓
 AI / ML validation
       ↓
 LLM evaluation
       ↓
-RAG evaluation
+RAG system construction + evaluation
       ↓
-Agent reliability
+Agent construction + reliability evaluation
       ↓
 AI-native automation
       ↓
 AI safety / adversarial testing
       ↓
-Production AI quality engineering
+Production AI quality & reliability engineering
 ```
 
-Do not prematurely list future skills as established expertise on the resume. Promote skills from "Learning / Building" to demonstrated capability only after they are implemented and defensible.
+The "system construction" stages exist to make evaluation knowledge practical and defensible.
+
+They are not intended to turn the portfolio into a collection of generic chatbot or AI application demos.
+
+Whenever possible:
+
+```text
+BUILD
+  ↓
+UNDERSTAND FAILURE MODES
+  ↓
+EVALUATE
+  ↓
+BREAK
+  ↓
+OBSERVE
+  ↓
+HARDEN
+  ↓
+AUTOMATE QUALITY GATES
+```
+
+Do not prematurely list future skills as established expertise on the resume.
+
+Promote skills from "Learning / Building" to demonstrated capability only after they are implemented and defensible.
 
 ---
 
-## Main Project: AI Quality Gate
+# Main Project: AI Quality Gate
 
 The main new project is a hands-on **AI Quality Gate** platform.
 
 Core question:
 
-> Is this AI system good enough to ship?
+> **Is this AI system good enough to ship?**
 
-### Consolidated one-month roadmap
+The Quality Gate should progressively evaluate increasingly realistic AI systems rather than remaining a collection of isolated scoring functions.
+
+---
+
+# Consolidated Roadmap
 
 This plan supersedes the earlier FastAPI/classical-ML-first sequence.
 
-| Week | Focus and deliverable |
-|---|---|
-| 1 | AI evaluation fundamentals. Complete only a very small practical ML validation exercise covering train/test split, precision, recall, F1, thresholds, and model regression. Begin the real AI Quality Gate with a versioned evaluation dataset, deterministic evaluators, structured evaluation results, explicit pass/fail thresholds, deliberate failure cases, and one semantic/model-based evaluator. Do not spend the full week on classical ML. |
-| 2 | LLM and RAG evaluation: correctness, relevance, groundedness, hallucination, retrieval quality, citation accuracy, missing/stale context, and distinguishing retrieval failures from generation failures. |
-| 3 | Agent evaluation and AI safety/control-plane testing: tool selection, tool arguments, action order, retries, recovery, loop detection, authorization, escalation, unsafe/excessive agency, prompt injection, tool abuse, and final outcome quality. Evaluate observable behavior, not hidden chain-of-thought. |
-| 4 | AI observability, regression detection, reporting, and CI quality gates. Finish with a reproducible PASS/BLOCK decision based on explicit evaluation thresholds. |
+## Week 1 — Evaluation Foundations
 
-### Learning strategy
+Complete only a very small practical ML validation exercise covering:
+
+- train/test split
+- precision
+- recall
+- F1
+- thresholds
+- model regression
+
+Then begin the real AI Quality Gate with:
+
+- versioned evaluation dataset
+- deterministic evaluators
+- structured evaluation results
+- explicit pass/fail thresholds
+- deliberate failure cases
+- one semantic/model-based evaluator
+
+Do not spend the full week on classical ML.
+
+The purpose of the ML exercise is to understand evaluation thinking, not to become an ML engineer.
+
+---
+
+## Week 2 — LLM + RAG System and Evaluation
+
+Do not evaluate RAG only as an abstract concept.
+
+Build the smallest useful RAG system first.
+
+Understand and implement the basic flow:
+
+```text
+User Query
+    ↓
+Retrieval
+    ↓
+Context
+    ↓
+LLM
+    ↓
+Grounded Answer
+```
+
+The implementation should be intentionally small.
+
+Then evaluate:
+
+- correctness
+- relevance
+- groundedness
+- hallucination
+- retrieval quality
+- context precision
+- context recall
+- citation accuracy
+- missing context
+- stale context
+- conflicting context
+- retrieval failure vs generation failure
+
+Understand:
+
+- embeddings
+- chunking
+- retrieval
+- context construction
+- generation
+
+Only introduce vector databases or RAG frameworks when they provide clear value.
+
+The goal is not to build an elaborate chatbot.
+
+The goal is to understand enough of the RAG architecture to evaluate its quality properly.
+
+Where useful, include structured business data or metadata so evaluation is not limited to document Q&A.
+
+---
+
+## Week 3 — Agent System + Reliability Evaluation
+
+Build a small bounded agentic workflow before creating a large agent evaluation framework.
+
+The agent should have a clear objective and a small number of tools.
+
+Example:
+
+```text
+Goal
+ ↓
+Reason / Plan
+ ↓
+Select Tool
+ ↓
+Generate Arguments
+ ↓
+Execute
+ ↓
+Observe Result
+ ↓
+Choose Next Action
+ ↓
+Final Outcome
+```
+
+Where useful, introduce a simple event or trigger so the agent can respond to a system condition rather than only a user prompt.
+
+Examples:
+
+```text
+Threshold exceeded
+      ↓
+Agent invoked
+      ↓
+Retrieve context
+      ↓
+Reason
+      ↓
+Select deterministic action
+      ↓
+Generate explanation
+      ↓
+Human feedback / escalation
+```
+
+Then evaluate observable agent behavior:
+
+- task success
+- tool selection
+- tool arguments
+- action order
+- retries
+- recovery
+- loop detection
+- authorization
+- escalation
+- unsafe/excessive agency
+- prompt injection
+- tool abuse
+- final outcome quality
+- latency
+- cost
+
+Evaluate observable behavior and system state.
+
+Do not claim to evaluate hidden chain-of-thought.
+
+Where actions have side effects, validate the resulting system state rather than only the natural-language response.
+
+---
+
+## Week 4 — Production AI Quality Engineering
+
+Bring the previous capabilities together through:
+
+- AI observability
+- tracing
+- regression detection
+- evaluation reporting
+- prompt/model/version comparison
+- latency monitoring
+- cost monitoring
+- CI quality gates
+- explicit PASS/BLOCK decisions
+
+The final result should demonstrate a reproducible release decision based on explicit quality thresholds.
+
+Where useful, capture:
+
+```text
+Input
+ ↓
+Retrieved Context
+ ↓
+Model / Agent Decision
+ ↓
+Tool Calls
+ ↓
+System Result
+ ↓
+Evaluation
+ ↓
+PASS / BLOCK
+```
+
+The Quality Gate should make failures diagnosable, not merely assign a score.
+
+---
+
+# AI Systems Engineering Supporting Track
+
+AI system construction is a supporting competency, not a replacement for AI-QE.
+
+Develop enough practical understanding of the following to evaluate realistic systems:
+
+## LLM Application Construction
+
+- model APIs
+- prompts
+- structured output
+- tool/function calling
+- context management
+- error handling
+- retries
+- model configuration
+- token/latency/cost awareness
+
+## RAG
+
+- ingestion
+- chunking
+- embeddings
+- indexing
+- retrieval
+- context construction
+- structured metadata
+- grounding
+- citation generation
+
+## Agents
+
+- bounded autonomy
+- orchestration
+- tool registries
+- tool selection
+- argument generation
+- state
+- memory where justified
+- human-in-the-loop
+- deterministic guardrails
+- post-condition validation
+
+## Operational AI Workflows
+
+Understand architectures such as:
+
+```text
+Business/Data Signal
+        ↓
+Event / Trigger
+        ↓
+Context Retrieval
+        ↓
+LLM / Agent Reasoning
+        ↓
+Tool / Deterministic Action
+        ↓
+User / System Output
+        ↓
+Feedback
+        ↓
+Evaluation + Observability
+```
+
+This enables quality engineering for AI systems that actually perform business work rather than only generate text.
+
+Do not over-engineer these systems.
+
+Build only enough complexity to expose meaningful quality, reliability, safety, and observability problems.
+
+---
+
+# Deterministic Automation vs AI
+
+An important engineering skill is deciding when AI should **not** be used.
+
+For every AI-enabled workflow, ask:
+
+1. Can this be solved reliably with deterministic software?
+2. Does AI provide meaningful value?
+3. Which decisions require probabilistic reasoning?
+4. Which actions should remain deterministic?
+5. What requires human approval?
+6. What happens when the model is wrong?
+
+Prefer:
+
+```text
+Deterministic software
+        +
+Bounded AI reasoning
+        +
+Explicit guardrails
+        +
+Post-condition validation
+```
+
+over unnecessary autonomous behavior.
+
+The objective is reliable systems, not maximum AI usage.
+
+---
+
+# Learning Strategy
 
 Learn by building rather than completing large courses first.
 
@@ -236,20 +606,41 @@ For each meaningful capability:
 1. Explain the concept briefly when the current build needs it.
 2. Ask Divyendu to reason about the design or quality strategy where appropriate.
 3. Challenge weak assumptions and unsupported claims.
-4. Help implement the smallest working capability and automate its tests.
-5. Deliberately break the system or provide bad input.
-6. Observe and analyze the failure, then improve validation.
-7. Document the lesson and identify portfolio/interview evidence.
+4. Build the smallest useful system or capability.
+5. Add automated validation.
+6. Deliberately break the system or provide bad input.
+7. Observe and diagnose the failure.
+8. Improve the evaluation or system design.
+9. Add a regression test.
+10. Document the lesson and identify portfolio/interview evidence.
 
-Do not build the entire platform in one pass. Keep the system incremental and demonstrable.
+Do not build an entire platform in one pass.
 
-Keep the journey self-contained in this workspace. Guide one step at a time without requiring movement between tools or chats. Before writing new code, briefly restate the current milestone and give the next single task. Treat Divyendu as a Staff-level QE engineer transitioning into AI QE; the objective is production AI evaluation, testing, security, observability, and quality gates, not ML research.
+Keep the system incremental and demonstrable.
 
-## Target Skills
+Keep the journey self-contained in this workspace.
 
-These are a longer-term skill inventory, not prerequisites or a mandatory one-month checklist. The consolidated roadmap determines the order and scope. Use Python/pytest for practical evaluation; do not turn the journey into generic Python training. Introduce each technology only when its role in the current build is justified.
+Before writing new code, briefly restate the current milestone and give the next single task.
 
-### ML / data
+Treat Divyendu as a Staff-level QE engineer transitioning into AI QE.
+
+The objective is production AI evaluation, testing, reliability, security, observability, and quality gates — supported by enough AI system engineering to make those skills real.
+
+---
+
+# Target Skills
+
+These are a longer-term skill inventory, not prerequisites or a mandatory one-month checklist.
+
+The consolidated roadmap determines the order and scope.
+
+Use Python/pytest for practical evaluation.
+
+Do not turn the journey into generic Python training.
+
+Introduce each technology only when its role in the current build is justified.
+
+## ML / Data
 
 - Python
 - NumPy
@@ -262,14 +653,16 @@ These are a longer-term skill inventory, not prerequisites or a mandatory one-mo
 - data quality
 - data drift
 - model regression testing
-- explainability (for example SHAP)
+- explainability concepts
 - fairness / bias concepts
 
-### GenAI
+## GenAI
 
 - LLM fundamentals
 - prompting
-- structured output / tool calling
+- structured output
+- tool calling
+- context engineering
 - hallucination testing
 - response correctness / relevance
 - safety testing
@@ -277,41 +670,183 @@ These are a longer-term skill inventory, not prerequisites or a mandatory one-mo
 - embeddings
 - retrieval evaluation
 - agent reliability
+- agent orchestration fundamentals
 
-### Evaluation / production
+## AI System Construction
+
+- model API integration
+- structured outputs
+- retrieval pipelines
+- small RAG applications
+- bounded agent workflows
+- deterministic tools
+- state and workflow management
+- structured-data integration
+- event/trigger-driven AI workflows
+- human feedback loops
+- failure handling
+
+These are supporting capabilities.
+
+Do not prematurely present them as production expertise.
+
+## Evaluation / Production
 
 - pytest
 - FastAPI only if an API genuinely helps the architecture; it is optional
 - DeepEval / RAGAS / promptfoo only after the underlying evaluation concepts have been understood and implemented directly
 - observability and tracing
 - latency / throughput / cost
+- evaluation datasets
+- regression testing
 - CI/CD quality gates
 - AWS / production deployment concepts
 
-## Engineering Principles
+---
+
+# Engineering Principles
 
 - **Build incrementally.** Prefer small working milestones over large speculative architecture.
-- **Tests are first-class.** New functionality should normally come with automated tests.
-- **Test the AI, not only the wrapper.** Validate model/data/output behavior where possible.
-- **Prefer deterministic checks when available.** Use exact assertions for deterministic values and appropriate semantic evaluation for probabilistic outputs.
-- **Deliberately test failure modes.** A project without failure demonstrations is not sufficient evidence of QE skill.
-- **Measure before claiming improvement.** Never invent performance, accuracy, quality, or productivity numbers.
-- **Do not fabricate experience.** Distinguish clearly between existing professional experience, personal project work, and current learning.
-- **Keep claims interview-defensible.** Anything added to a resume or README should be backed by code, tests, documentation, or clearly stated project status.
-- **Avoid unnecessary dependencies.** Add a library only when the project benefits from it and explain why when relevant.
-- **Keep secrets out of Git.** Never commit API keys, cloud credentials, tokens, or private endpoints.
-- **Keep public repos sanitized.** Do not introduce proprietary company/customer information into this repository.
-- **Prefer clear Python and TypeScript/JavaScript over clever code.**
-- **Document architectural decisions.** Especially decisions about evaluation methodology and quality thresholds.
 
-## Current State
+- **Build enough to evaluate.** For RAG and agent systems, implement a small real workflow before abstracting its evaluation.
+
+- **Tests are first-class.** New functionality should normally come with automated tests.
+
+- **Test the AI, not only the wrapper.** Validate model/data/output behavior where possible.
+
+- **Test the system, not only the model.** AI failures may originate in retrieval, context construction, orchestration, tools, data, infrastructure, or deterministic business logic.
+
+- **Prefer deterministic checks when available.** Use exact assertions for deterministic values and appropriate semantic evaluation for probabilistic outputs.
+
+- **Separate deterministic and probabilistic behavior.** Do not use LLM judges for conditions that can be validated exactly.
+
+- **Validate outcomes, not hidden reasoning.** Evaluate observable decisions, tool calls, outputs, traces, and resulting system state.
+
+- **Deliberately test failure modes.** A project without failure demonstrations is not sufficient evidence of QE skill.
+
+- **Design for diagnosability.** A failed quality gate should explain what failed and where, not merely return a low score.
+
+- **Measure before claiming improvement.** Never invent performance, accuracy, quality, or productivity numbers.
+
+- **Do not fabricate experience.** Distinguish clearly between existing professional experience, personal project work, and current learning.
+
+- **Keep claims interview-defensible.** Anything added to a resume or README should be backed by code, tests, documentation, or clearly stated project status.
+
+- **Avoid unnecessary dependencies.** Add a library only when the project benefits from it and explain why when relevant.
+
+- **Avoid framework tourism.** Understanding RAG, evaluation, agent behavior, and reliability matters more than collecting framework names.
+
+- **Keep secrets out of Git.** Never commit API keys, cloud credentials, tokens, or private endpoints.
+
+- **Keep public repos sanitized.** Do not introduce proprietary company/customer information into this repository.
+
+- **Prefer clear Python and TypeScript/JavaScript over clever code.**
+
+- **Document architectural decisions.** Especially decisions about evaluation methodology, quality thresholds, deterministic vs AI behavior, and system boundaries.
+
+---
+
+# Evidence Levels
+
+Maintain a clear distinction between knowledge and demonstrated capability.
+
+Use the following mental model:
+
+```text
+LEARNED
+  ↓
+IMPLEMENTED
+  ↓
+TESTED
+  ↓
+BROKEN DELIBERATELY
+  ↓
+HARDENED
+  ↓
+DOCUMENTED
+  ↓
+INTERVIEW-DEFENSIBLE
+```
+
+A technology or capability should not automatically become a resume skill simply because it was studied.
+
+Strong portfolio evidence should ideally include:
+
+- working implementation
+- automated tests
+- failure cases
+- evaluation results
+- architectural explanation
+- documented tradeoffs
+- reproducible execution
+
+---
+
+# Relationship to Distributed Systems Quality Engineering
+
+A separate learning track may cover deeper cloud-native and distributed-systems quality engineering, including:
+
+- messaging
+- queues
+- retries
+- idempotency
+- eventual consistency
+- Kubernetes
+- failure injection
+- resilience
+- observability
+
+Do not duplicate that entire roadmap here.
+
+However, connect the concepts when AI systems depend on them.
+
+For example:
+
+```text
+Agent
+ ↓
+Tool Call
+ ↓
+API
+ ↓
+Event
+ ↓
+Queue
+ ↓
+Worker
+ ↓
+Business Action
+```
+
+Testing the LLM alone is insufficient.
+
+Quality may depend on:
+
+- correct tool selection
+- valid arguments
+- event delivery
+- idempotency
+- retries
+- downstream state
+- observability
+- recovery
+
+The long-term objective is to understand AI reliability as a **system property**, not merely a model property.
+
+---
+
+# Current State
 
 - Two technical articles are published in this repository.
-- README has been positioned as an AI-QE portfolio landing page.
+- README is positioned as an AI-QE portfolio landing page.
 - QA-Agent exists as a separate public repository and is linked from the portfolio README.
-- Next major task: start the **AI Quality Gate** project incrementally.
+- AI Quality Gate is the next major hands-on project.
+- AI-system construction will be introduced incrementally when required by evaluation milestones.
+- No future RAG/agent/evaluation capability should be represented as completed until corresponding implementation and evidence exist.
 
-## Immediate Next Milestone
+---
+
+# Immediate Next Milestone
 
 Create the initial project under:
 
@@ -319,41 +854,100 @@ Create the initial project under:
 projects/ai-quality-gate/
 ```
 
-Current milestone: define and build the smallest evaluation runner for a bounded AI response task.
+Current milestone:
 
-Start by designing the first evaluation case: input, authoritative context, expected behavior, acceptable variations, and an explicit failure rule. Then incrementally implement a versioned dataset, deterministic checks, structured results, and thresholds using Python/pytest. Demonstrate a bad response being caught. Add one semantic/model-based evaluator during Week 1 and test its limitations against reviewed examples.
+Define and build the smallest evaluation runner for a bounded AI response task.
 
-The small ML validation exercise supports evaluation fundamentals; it is not a prerequisite for building an API or a separate full classical ML project. FastAPI is optional. No AI Quality Gate application code exists at this checkpoint; the first evaluation case is the next task to discuss.
+Start by designing the first evaluation case:
 
-## Working Style for Codex
+- input
+- authoritative context
+- expected behavior
+- acceptable variations
+- explicit failure rule
+
+Then incrementally implement:
+
+- versioned dataset
+- deterministic checks
+- structured results
+- thresholds
+- deliberate failure
+- one semantic/model-based evaluator
+
+Use Python/pytest.
+
+Demonstrate a bad response being caught.
+
+Test the limitations of the semantic evaluator against reviewed examples.
+
+Do **not** jump ahead to RAG or agent orchestration before the evaluation foundation works.
+
+When Week 2 begins, build a minimal RAG system before evaluating RAG behavior.
+
+When Week 3 begins, build a bounded agent workflow before implementing agent evaluation.
+
+---
+
+# Working Style for Codex
 
 When starting a new task in this repository:
 
 1. Read this file and the root README.
 2. Inspect the existing project structure before changing anything.
-3. Summarize the planned change briefly.
-4. Make the smallest coherent change.
-5. Run relevant tests/checks.
-6. Report what changed, what was tested, and any limitations.
-7. Do not rewrite unrelated files.
-8. Do not silently invent requirements.
+3. Identify the current roadmap milestone.
+4. Summarize the planned change briefly.
+5. Make the smallest coherent change.
+6. Run relevant tests/checks.
+7. Deliberately test at least one meaningful failure case where appropriate.
+8. Report what changed, what was tested, and any limitations.
+9. Do not rewrite unrelated files.
+10. Do not silently invent requirements.
+11. Do not skip ahead in the roadmap merely because a framework makes it easy.
+12. Do not add a technology solely for resume value.
 
 When the user asks to learn a concept, teach just enough theory to support the current implementation and connect it to AI-QE testing.
 
-## Definition of Done
+When implementing RAG or agent functionality, explain the system behavior before introducing an abstraction/framework.
 
-A feature is not considered complete merely because the code runs. Prefer the following:
+Prefer first-principles understanding before framework-specific convenience.
+
+---
+
+# Definition of Done
+
+A feature is not considered complete merely because the code runs.
+
+Prefer:
 
 ```text
 Implementation
     +
 Automated tests
     +
-Failure/edge-case test
+Failure / edge-case test
     +
-Clear README/documentation
+Evaluation where appropriate
+    +
+Observability / useful diagnostics
+    +
+Clear README / documentation
     +
 Reproducible execution
 ```
 
-The objective is a portfolio that demonstrates engineering judgment, not just code volume.
+For AI-system features, also ask:
+
+```text
+What can fail?
+      ↓
+Can we observe it?
+      ↓
+Can we evaluate it?
+      ↓
+Can we reproduce it?
+      ↓
+Can we prevent regression?
+```
+
+The objective is a portfolio that demonstrates engineering judgment, system understanding, and AI quality expertise — not just code volume or framework familiarity.
