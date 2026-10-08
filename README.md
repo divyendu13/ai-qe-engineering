@@ -2,7 +2,7 @@
 
 A hands-on portfolio exploring how Quality Engineering evolves for AI/ML and Generative AI systems.
 
-I am a Staff Software Engineer in Test with ~10 years of experience building scalable automation, CI/CD, observability, performance, security, and distributed-system testing. This repository documents my transition from testing software with AI to engineering quality, evaluation, and reliability for AI-powered systems.**.
+I am a Staff Software Engineer in Test with ~10 years of experience building scalable automation, CI/CD, observability, performance, security, and distributed-system testing. This repository documents my transition from testing software with AI to engineering quality, evaluation, and reliability for AI-powered systems.
 
 ## Why this repository exists
 
@@ -31,6 +31,9 @@ The goal of this portfolio is to explore those problems through working systems,
 - Tool-use and action validation
 - Context engineering and structured-data integration
 - Evaluation-driven AI development
+- Fuzz testing and OpenAPI robustness validation
+- Bias, toxicity, and unsafe-output evaluation
+- Distributed AI service reliability: queues, retries, backpressure, idempotency, and failure recovery
 
 ## Articles
 
@@ -88,8 +91,10 @@ The next month is organized around small working evaluation capabilities:
 | 2 | Build a minimal RAG workflow, then evaluate LLM/RAG correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, and retrieval-versus-generation failures. |
 | 3 | Build a bounded agentic workflow, then evaluate observable agent behavior: tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, and tool abuse. |
 | 4 | Observability, regression detection, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
+| 3 | Build a bounded agentic workflow, then evaluate observable agent behavior: tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, tool abuse, and distributed workflow failures such as duplicate events, delayed dependencies, queue buildup, and retry behavior. |
+| 4 | Observability, regression detection, AI safety, bias/toxicity evaluation, API fuzzing, performance/load validation, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
 
-Python and pytest support the evaluation work. FastAPI is optional. Evaluation frameworks such as DeepEval, RAGAS, and promptfoo will be considered only after implementing and understanding the underlying concepts. These are planned capabilities, not completed project claims.
+Python and pytest support the evaluation work. FastAPI is optional. Evaluation frameworks such as DeepEval, RAGAS, and promptfoo will be considered only after implementing and understanding the underlying concepts. OpenAPI-driven fuzzing tools such as CATS or Schemathesis may be introduced where they help validate inference and backend APIs under malformed, unexpected, or adversarial inputs. These are planned capabilities, not completed project claims.
 
 The working approach is to explain a needed concept, reason about the quality strategy, implement and test it, deliberately demonstrate a failure, improve validation, and document the evidence. Persistent working instructions and the current checkpoint live in [AGENTS.md](./AGENTS.md).
 
