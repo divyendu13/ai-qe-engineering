@@ -34,6 +34,11 @@ The goal of this portfolio is to explore those problems through working systems,
 - Fuzz testing and OpenAPI robustness validation
 - Bias, toxicity, and unsafe-output evaluation
 - Distributed AI service reliability: queues, retries, backpressure, idempotency, and failure recovery
+- golden datasets / benchmark evaluation
+- agent evaluation and trajectory testing
+- human-in-the-loop safety controls
+- model/prompt baseline-vs-candidate comparison
+- production AI observability: tracing, token/cost, fallbacks, escalations
 
 ## Articles
 
@@ -56,6 +61,8 @@ A hands-on AI/ML quality engineering platform focused on answering one question:
 The project is at the evaluation-design stage; application implementation has not started. The first milestone is a small evaluation runner with a versioned dataset, deterministic checks, structured results, explicit thresholds, deliberate failures, and one semantic/model-based evaluator.
 
 The implementation is intentionally incremental. Each capability is learned by building it, testing it, deliberately breaking it, and then hardening the quality checks.
+
+The long-term goal is a reusable evaluation platform for LLM, RAG, and agentic systems, with versioned golden datasets, configurable evaluators, regression comparison, safety checks, observability, and CI-integrated release gates.
 
 ## Existing AI / QE Work
 
@@ -87,12 +94,10 @@ The next month is organized around small working evaluation capabilities:
 
 | Week | Planned focus |
 |---|---|
-| 1 | Evaluation fundamentals and the first AI Quality Gate runner. A small ML exercise introduces train/test split, precision, recall, F1, thresholds, and model regression; most effort goes into the evaluation system. |
-| 2 | Build a minimal RAG workflow, then evaluate LLM/RAG correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, and retrieval-versus-generation failures. |
-| 3 | Build a bounded agentic workflow, then evaluate observable agent behavior: tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, and tool abuse. |
-| 4 | Observability, regression detection, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
-| 3 | Build a bounded agentic workflow, then evaluate observable agent behavior: tool selection/arguments, action order, retries, recovery, loops, authorization, escalation, final outcomes, prompt injection, tool abuse, and distributed workflow failures such as duplicate events, delayed dependencies, queue buildup, and retry behavior. |
-| 4 | Observability, regression detection, AI safety, bias/toxicity evaluation, API fuzzing, performance/load validation, reporting, and CI gates that produce PASS/BLOCK from explicit thresholds. |
+| 1 | Evaluation fundamentals and the first AI Quality Gate runner: versioned/golden datasets, deterministic checks, structured results, explicit thresholds, deliberate failures, and a first semantic evaluator. |
+| 2 | Build a minimal RAG workflow, then evaluate correctness, relevance, grounding, hallucination, retrieval quality, citations, missing/stale context, prompt variants, and retrieval-versus-generation failures. |
+| 3 | Build a bounded agentic workflow, then evaluate tool selection/arguments, action order, retries, recovery, loops, authorization, human-in-the-loop handoffs, memory/state, prompt injection, tool abuse, and distributed workflow failures. |
+| 4 | Production AI quality engineering: observability, tracing, regression/drift detection, model/prompt comparison, safety/red-teaming, bias/toxicity, API fuzzing, performance/load, and CI gates that produce PASS/BLOCK from explicit thresholds. |
 
 Python and pytest support the evaluation work. FastAPI is optional. Evaluation frameworks such as DeepEval, RAGAS, and promptfoo will be considered only after implementing and understanding the underlying concepts. OpenAPI-driven fuzzing tools such as CATS or Schemathesis may be introduced where they help validate inference and backend APIs under malformed, unexpected, or adversarial inputs. These are planned capabilities, not completed project claims.
 
