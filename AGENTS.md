@@ -446,6 +446,12 @@ Then evaluate observable agent behavior:
 - final outcome quality
 - latency
 - cost
+- memory persistence
+- human-in-the-loop approval
+- explicit fallback behavior
+- production-style escalation
+- typed tool schemas / JSON function contracts
+- MCP tool validation
 
 Evaluate observable behavior and system state.
 
@@ -468,6 +474,14 @@ Bring the previous capabilities together through:
 - cost monitoring
 - CI quality gates
 - explicit PASS/BLOCK decisions
+- golden-set regression
+- baseline vs candidate model/prompt comparison
+- drift detection
+- bias / toxicity evaluation
+- adversarial red-teaming
+- prompt injection / data exfiltration tests
+- user-correction / fallback / escalation metrics
+- optional inter-rater / human review workflow
 
 The final result should demonstrate a reproducible release decision based on explicit quality thresholds.
 
@@ -597,6 +611,31 @@ The objective is reliable systems, not maximum AI usage.
 
 ---
 
+# Evaluation Platform Design
+
+The AI Quality Gate should progressively evolve from a single-purpose runner into a reusable evaluation platform.
+
+Support, where justified:
+
+- standardized evaluation datasets
+- custom benchmark datasets
+- pluggable evaluators
+- deterministic checks
+- LLM-as-a-Judge
+- DeepEval / RAGAS / promptfoo integration
+- agent/tool evaluation
+- safety and adversarial suites
+- baseline vs candidate comparisons
+- regression / drift checks
+- latency / token / cost tracking
+- CI-integrated PASS/BLOCK decisions
+- structured reports
+- self-service execution through CLI or lightweight API
+
+Do not build a large platform before the core evaluation primitives are proven.
+
+---
+
 # Learning Strategy
 
 Learn by building rather than completing large courses first.
@@ -694,13 +733,24 @@ Do not prematurely present them as production expertise.
 
 - pytest
 - FastAPI only if an API genuinely helps the architecture; it is optional
-- DeepEval / RAGAS / promptfoo only after the underlying evaluation concepts have been understood and implemented directly
+- DeepEval as the primary hands-on LLM evaluation framework after the core metric concepts are understood
+- RAGAS for focused RAG evaluation
+- promptfoo / LangSmith / Phoenix where they add specific value
 - observability and tracing
 - latency / throughput / cost
 - evaluation datasets
 - regression testing
 - CI/CD quality gates
 - AWS / production deployment concepts
+- golden / benchmark datasets
+- LLM-as-a-Judge
+- baseline-vs-candidate evaluation
+- regression / drift detection
+- safety / red-team evaluation
+- bias / toxicity metrics
+- human-in-the-loop evaluation
+- self-service evaluation platform concepts
+- agent tracing and execution-path analysis
 
 ---
 
