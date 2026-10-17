@@ -34,11 +34,11 @@ The goal of this portfolio is to explore those problems through working systems,
 - Fuzz testing and OpenAPI robustness validation
 - Bias, toxicity, and unsafe-output evaluation
 - Distributed AI service reliability: queues, retries, backpressure, idempotency, and failure recovery
-- golden datasets / benchmark evaluation
-- agent evaluation and trajectory testing
-- human-in-the-loop safety controls
-- model/prompt baseline-vs-candidate comparison
-- production AI observability: tracing, token/cost, fallbacks, escalations
+- Golden datasets / benchmark evaluation
+- Agent evaluation and trajectory testing
+- Human-in-the-loop safety controls
+- Model/prompt baseline-vs-candidate comparison
+- Production AI observability: tracing, token/cost, fallbacks, escalations
 
 ## Articles
 
